@@ -23,7 +23,7 @@ image, running in a mobile browser.
 ### From the Unity Asset Store (recommended)
 
 Import the package from the
-[Unity Asset Store](https://assetstore.unity.com/). The plugin lands at
+[Unity Asset Store](https://assetstore.unity.com/packages/slug/384314). The plugin lands at
 `Assets/MakeGamesPlay/WebARImageTracker/` and the bundled WebGL template at
 `Assets/WebGLTemplates/WebARTemplate/`.
 
