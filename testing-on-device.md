@@ -23,12 +23,10 @@ compression headers, and **streams each connected device's console back into the
 editor** — so you can read what the phone sees without a tethered remote-debug
 session.
 
-{% hint style="info" %}
-WebGL Build Host is free and open source on its own at
-[github.com/MakeGamesPlay/unity-webgl-build-host](https://github.com/MakeGamesPlay/unity-webgl-build-host).
-If you already installed it separately via a UPM Git URL, **remove that copy
-before importing this package** to avoid a duplicate assembly.
-{% endhint %}
+> WebGL Build Host is free and open source on its own at
+> [github.com/MakeGamesPlay/unity-webgl-build-host](https://github.com/MakeGamesPlay/unity-webgl-build-host).
+> If you already installed it separately via a UPM Git URL, **remove that copy
+> before importing this package** to avoid a duplicate assembly.
 
 ## Deploying for real
 
@@ -40,11 +38,9 @@ TLS:
 * **Cloudflare Pages**
 * Any host that serves over HTTPS and supports the right compression headers.
 
-{% hint style="warning" %}
-**`getUserMedia` won't fire on `http://` origins** (except `localhost`). If the
-camera permission never prompts, you're almost certainly loading over HTTP —
-redeploy over HTTPS.
-{% endhint %}
+> **`getUserMedia` won't fire on `http://` origins** (except `localhost`). If the
+> camera permission never prompts, you're almost certainly loading over HTTP —
+> redeploy over HTTPS.
 
 ### Slow first load?
 

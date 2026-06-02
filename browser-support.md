@@ -32,15 +32,13 @@ named "unsupported because X" message rather than failing silently downstream.
 | Budget / older Android (2017–2019) | Huawei Mate 20 Lite, Galaxy A10 class | 10–20 Hz; first load may need a retry |
 | Unsupported | Pre-WebGL 2, or no `EXT_color_buffer_float` | 0 Hz; named unsupported banner |
 
-{% hint style="info" %}
-**iOS runs the tracker faster than Android — even on older hardware.** On-device
-testing consistently shows TensorFlow.js's WebGL backend running materially
-faster on iOS WebKit than on Android Chromium. An iPhone 12 Pro Max (2020) in
-Safari runs the tracker ~45% faster than a Galaxy S22 Ultra (2022) in Chrome,
-despite the newer Android hardware. There's no Unity-side workaround — it's a
-browser-platform characteristic. If you target Android, expect Chrome to trail
-the device's nominal capability.
-{% endhint %}
+> **iOS runs the tracker faster than Android — even on older hardware.** On-device
+> testing consistently shows TensorFlow.js's WebGL backend running materially
+> faster on iOS WebKit than on Android Chromium. An iPhone 12 Pro Max (2020) in
+> Safari runs the tracker ~45% faster than a Galaxy S22 Ultra (2022) in Chrome,
+> despite the newer Android hardware. There's no Unity-side workaround — it's a
+> browser-platform characteristic. If you target Android, expect Chrome to trail
+> the device's nominal capability.
 
 ## Pose quality at a glance
 
@@ -69,11 +67,9 @@ Each row was verified from an on-device diagnostic snapshot (steady-state
 | Huawei Mate 20 Lite | Android 10 / Chrome | Mali-G51 | 12.6–14.3 Hz | Lowest verified tier; capability checks pass. |
 | Huawei Mate 20 Lite | Android 10 / Firefox | Mali-G51 | 10.1 Hz | Firefox Android ~25% slower than Chrome on the same device. |
 
-{% hint style="info" %}
-**All iOS browsers are WebKit under the hood** (Apple mandate), so Safari, Chrome
-and Brave on iOS share the tracker engine; differences come from each browser's
-privacy/shield layers. Use **Safari** for performance-sensitive iOS demos.
-{% endhint %}
+> **All iOS browsers are WebKit under the hood** (Apple mandate), so Safari, Chrome
+> and Brave on iOS share the tracker engine; differences come from each browser's
+> privacy/shield layers. Use **Safari** for performance-sensitive iOS demos.
 
 ## Reporting a new device
 

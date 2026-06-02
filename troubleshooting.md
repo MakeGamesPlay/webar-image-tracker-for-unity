@@ -4,11 +4,9 @@ description: The common first-build foot-guns and how to clear them.
 
 # Troubleshooting
 
-{% hint style="success" %}
-Run **`Tools ▸ WebAR Image Tracker for Unity ▸ Compatibility Audit`** first. It
-statically checks the WebGL template, render pipeline, Input System, runtime
-files, and build target — catching most of the issues below before you deploy.
-{% endhint %}
+> Run **`Tools ▸ WebAR Image Tracker for Unity ▸ Compatibility Audit`** first. It
+> statically checks the WebGL template, render pipeline, Input System, runtime
+> files, and build target — catching most of the issues below before you deploy.
 
 ## The camera permission never prompts
 

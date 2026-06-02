@@ -33,12 +33,10 @@ WebARBridge.Instance.TargetLost  += index => { /* ... */ };
 WebARBridge.Instance.MatrixUpdated += (index, matrix16, ambiguityDeg) => { /* ... */ };
 ```
 
-{% hint style="info" %}
-**Prefer the components over raw matrices.** `WebARImageTracker` already mirrors
-the *stabilised* world pose and toggles content visibility for you.
-`MatrixUpdated` delivers the **raw** tracker matrix, before the smoothing
-pipeline — use it only when you need the unfiltered pose.
-{% endhint %}
+> **Prefer the components over raw matrices.** `WebARImageTracker` already mirrors
+> the *stabilised* world pose and toggles content visibility for you.
+> `MatrixUpdated` delivers the **raw** tracker matrix, before the smoothing
+> pipeline — use it only when you need the unfiltered pose.
 
 ## Lifecycle control
 

@@ -27,12 +27,10 @@ Import the package from the
 `Assets/MakeGamesPlay/WebARImageTracker/` and the bundled WebGL template at
 `Assets/WebGLTemplates/WebARTemplate/`.
 
-{% hint style="info" %}
-The template's presence at exactly `Assets/WebGLTemplates/WebARTemplate/` is
-what makes **WebARTemplate** appear in **Project Settings → Player → WebGL →
-Resolution and Presentation → WebGL Template**. Unity only discovers templates
-at that path — it can't load them from a package folder.
-{% endhint %}
+> The template's presence at exactly `Assets/WebGLTemplates/WebARTemplate/` is
+> what makes **WebARTemplate** appear in **Project Settings → Player → WebGL →
+> Resolution and Presentation → WebGL Template**. Unity only discovers templates
+> at that path — it can't load them from a package folder.
 
 ### From the Unity Package Manager (UPM)
 
@@ -53,11 +51,9 @@ is missing.
 **Project Settings → Player → WebGL → Resolution and Presentation → WebGL
 Template → `WebARTemplate`.**
 
-{% hint style="warning" %}
-Can't see `WebARTemplate` in the picker? Switch your build target to **WebGL**
-first (**File → Build Settings → WebGL → Switch Platform**). Templates only
-appear for the active platform.
-{% endhint %}
+> Can't see `WebARTemplate` in the picker? Switch your build target to **WebGL**
+> first (**File → Build Settings → WebGL → Switch Platform**). Templates only
+> appear for the active platform.
 
 ### 2. Create your target
 
@@ -128,14 +124,12 @@ for the fastest path). Open the page on a phone, allow camera access — and on
 iOS, the motion-permission prompt on first tap — then point at your printed
 target.
 
-{% hint style="success" %}
-**Success looks like:** the camera feed renders behind the Unity canvas, the
-status banner switches from "Searching for target…" to "Target 0 visible", and
-your content appears anchored to the printed marker at the correct physical
-scale. Content stays locked across portrait ↔ landscape rotation, follows the
-marker as you move the phone, and disappears within ~0.4 s of the marker
-leaving view.
-{% endhint %}
+> **Success looks like:** the camera feed renders behind the Unity canvas, the
+> status banner switches from "Searching for target…" to "Target 0 visible", and
+> your content appears anchored to the printed marker at the correct physical
+> scale. Content stays locked across portrait ↔ landscape rotation, follows the
+> marker as you move the phone, and disappears within ~0.4 s of the marker
+> leaving view.
 
 ## Run the Compatibility Audit
 

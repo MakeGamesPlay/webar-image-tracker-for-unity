@@ -83,12 +83,10 @@ centre to nest your meshes under.
 the paper)**, +Z = marker height. A child at `(0, 0, 0)` sits at the marker
 centre; `(0, 0.05, 0)` floats 5 cm above the surface. Model at `1 unit = 1 m`.
 
-{% hint style="warning" %}
-Only **one** marker file loads per scene (the bridge runs a single tracker
-instance). If trackers point at *different* marker files, the extras won't
-track — the Inspector flags this. Compile all images into one multi-target
-marker instead. See [Multi-Target Tracking](multi-target.md).
-{% endhint %}
+> Only **one** marker file loads per scene (the bridge runs a single tracker
+> instance). If trackers point at *different* marker files, the extras won't
+> track — the Inspector flags this. Compile all images into one multi-target
+> marker instead. See [Multi-Target Tracking](multi-target.md).
 
 ## Marker asset (WebAR Marker)
 

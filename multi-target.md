@@ -55,12 +55,10 @@ when it isn't — independently of the others.
 
 ## Performance: the honest trade-off
 
-{% hint style="warning" %}
-Tracking more than one target at a time makes the matcher do more work **per
-frame**, which lowers the tracker frame rate for *every* target. Even a perfect
-per-target pipeline has a lower quality ceiling at `Max Targets > 1` than at
-`1`. Tune `Max Targets` to the smallest number your experience actually needs.
-{% endhint %}
+> Tracking more than one target at a time makes the matcher do more work **per
+> frame**, which lowers the tracker frame rate for *every* target. Even a perfect
+> per-target pipeline has a lower quality ceiling at `Max Targets > 1` than at
+> `1`. Tune `Max Targets` to the smallest number your experience actually needs.
 
 The live tracker rate is always visible on the on-device diagnostic overlay as
 `upd (Hz)`, and queryable from C# via `WebARBridge.Instance.TrackerRateHz` — so

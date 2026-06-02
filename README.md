@@ -17,15 +17,13 @@ plugin bridges [mind-ar-js](https://github.com/hiukim/mind-ar-js)
 (TensorFlow.js + WebGL2) into Unity so AR content you author in the editor
 deploys straight to the mobile web.
 
-{% hint style="success" %}
-### 🛒 Get it on the Unity Asset Store
-
-**[→ WebAR Image Tracker for Unity on the Unity Asset Store](https://assetstore.unity.com/packages/slug/384314)**
-
-One import, a custom WebGL template, and a one-click scene rig. Build to WebGL,
-host over HTTPS, and your AR experience runs in the browser on the devices
-already in your users' pockets.
-{% endhint %}
+> 🛒 **Get it on the Unity Asset Store**
+>
+> **[→ WebAR Image Tracker for Unity on the Unity Asset Store](https://assetstore.unity.com/packages/slug/384314)**
+>
+> One import, a custom WebGL template, and a one-click scene rig. Build to WebGL,
+> host over HTTPS, and your AR experience runs in the browser on the devices
+> already in your users' pockets.
 
 ## Why WebAR
 

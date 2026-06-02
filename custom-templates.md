@@ -84,12 +84,10 @@ The version-pinned bundle files are:
 | `controller-*.js` | mind-ar's tracker code (the largest chunk, ~2 MB). |
 | `ui-*.js` | mind-ar's internal UI chunk. |
 
-{% hint style="warning" %}
-**Keep all of these together.** A missing Rollup-hashed chunk (the `*-HASH.js`
-files) makes Firefox hang silently on module load. Unity copies everything under
-`TemplateData/` to the build output automatically — don't add `.meta` exclusions
-that drop them.
-
-**Upgrading mind-ar or three.js** means re-downloading every file in the table;
-the `*-HASH.js` chunk names change with each mind-ar release.
-{% endhint %}
+> **Keep all of these together.** A missing Rollup-hashed chunk (the `*-HASH.js`
+> files) makes Firefox hang silently on module load. Unity copies everything under
+> `TemplateData/` to the build output automatically — don't add `.meta` exclusions
+> that drop them.
+>
+> **Upgrading mind-ar or three.js** means re-downloading every file in the table;
+> the `*-HASH.js` chunk names change with each mind-ar release.

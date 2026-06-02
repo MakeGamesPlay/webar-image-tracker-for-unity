@@ -22,11 +22,9 @@ Open **`Tools ▸ WebAR Image Tracker for Unity ▸ Create Marker`**.
 4. It writes the result straight into your project as a **`WebARImageTarget`**
    asset, ready to drop into an image tracker's **Target File** slot.
 
-{% hint style="info" %}
-Already have a `.mind` file (for example, one compiled with the mind-ar-js
-online tool)? Drop it anywhere under `Assets/` and the plugin's scripted
-importer converts it into a `WebARImageTarget` automatically.
-{% endhint %}
+> Already have a `.mind` file (for example, one compiled with the mind-ar-js
+> online tool)? Drop it anywhere under `Assets/` and the plugin's scripted
+> importer converts it into a `WebARImageTarget` automatically.
 
 ## What makes a good target image
 
@@ -49,11 +47,9 @@ high-contrast detail an image has, the more reliably and accurately it tracks.
 * Low contrast, soft focus, or heavy noise.
 * Strong rotational symmetry (the tracker can lock at the wrong orientation).
 
-{% hint style="warning" %}
-**Crop out dead borders.** A wide uniform margin around your artwork is wasted
-tracking area and a frequent cause of unstable pose. If the trackability view
-shows a large featureless region, crop it before compiling.
-{% endhint %}
+> **Crop out dead borders.** A wide uniform margin around your artwork is wasted
+> tracking area and a frequent cause of unstable pose. If the trackability view
+> shows a large featureless region, crop it before compiling.
 
 ## Physical dimensions matter
 

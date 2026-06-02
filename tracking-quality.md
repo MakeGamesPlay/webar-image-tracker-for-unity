@@ -38,12 +38,10 @@ the moment real motion begins**. So heavy rest-smoothing damps close-hold tremor
 without making deliberate movement feel laggy — the two goals that a single
 fixed filter can't satisfy at once.
 
-{% hint style="info" %}
-On iOS, motion sensors need a permission grant (separate from the camera). The
-bundled template requests it on the first tap. If denied, tracking still works,
-but motion-adaptive relaxation can't engage and content feels slightly draggier
-during hand motion.
-{% endhint %}
+> On iOS, motion sensors need a permission grant (separate from the camera). The
+> bundled template requests it on the first tap. If denied, tracking still works,
+> but motion-adaptive relaxation can't engage and content feels slightly draggier
+> during hand motion.
 
 ## The on-device tuning panel
 
