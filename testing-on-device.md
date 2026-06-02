@@ -44,10 +44,12 @@ TLS:
 
 ### Slow first load?
 
-If a build takes 30+ seconds to load, your host isn't serving the pre-compressed
-Unity files with `Content-Encoding: br` / `gzip` headers. Either configure your
-host to send them, enable **Decompression Fallback** in Player Settings, or use
-WebGL Build Host (which sets these headers correctly).
+If a build takes 20–30 s to load (worse on mobile), your host isn't serving the
+pre-compressed Unity files with the right `Content-Encoding` / `Content-Type`
+headers, so Unity falls back to slow JavaScript decompression. WebGL Build Host
+sets them correctly for local testing; for your **production** host, see
+[Build loads slowly](troubleshooting.md#build-loads-slowly-30-seconds) for
+ready-to-paste Apache + nginx config.
 
 ## On iOS: the first-tap permission
 

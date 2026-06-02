@@ -40,10 +40,77 @@ URP is the most thoroughly tested pipeline.
 
 ## Build loads slowly (30+ seconds)
 
-Your host isn't serving the pre-compressed Unity files with `Content-Encoding:
-br` / `gzip` headers. Configure your host, enable **Decompression Fallback** in
-Player Settings, or use [WebGL Build Host](testing-on-device.md) (which sets
-them correctly).
+**Symptom:** the build loads and tracks, but the *first* load takes 20–30
+seconds (noticeably worse on iPhone) instead of a few seconds.
+
+**Cause:** Unity WebGL release builds ship their big artifacts *already
+compressed* — `*.wasm.br`, `*.framework.js.br`, `*.data.br` (Brotli) or `*.gz`
+(Gzip). A generic static server serves those raw, with **no `Content-Encoding`
+header**, so the browser sees brotli bytes labelled as opaque binary, can't
+decode them natively, and Unity falls back to its **JavaScript** decompressor —
+tens of seconds on mobile. Without `Content-Type: application/wasm` the browser
+also can't *streaming-compile* the WebAssembly as it downloads.
+
+**The fix:** make your host send, for the pre-compressed files, both the
+`Content-Encoding` (so the browser decodes natively) and the real underlying
+`Content-Type` (so it streaming-compiles). The bundled
+[WebGL Build Host](testing-on-device.md) already does this for local testing —
+the configs below are for your **production** server.
+
+### Apache (`.htaccess`)
+
+Drop this in the deployed build folder (alongside `index.html` / the `Build/`
+folder). Needs `mod_mime`:
+
+```apache
+<IfModule mod_mime.c>
+  # .br / .gz are content-encodings, not file types. Clear stray associations
+  # first — Apache maps .br to the Breton *language* by default, which silently
+  # breaks encoding detection.
+  RemoveType     .br .gz
+  RemoveLanguage .br
+
+  AddEncoding br   .br
+  AddEncoding gzip .gz
+
+  # Map the underlying types so the browser streaming-compiles the wasm.
+  AddType application/wasm         .wasm
+  AddType application/javascript   .js
+  AddType application/octet-stream .data
+</IfModule>
+
+# Never let mod_deflate re-compress an already-compressed file.
+<IfModule mod_deflate.c>
+  SetEnvIfNoCase Request_URI "\.(br|gz)$" no-gzip dont-vary
+</IfModule>
+```
+
+No `.htaccess` access? The same `AddEncoding` / `AddType` lines go in your vhost
+or `apache2.conf`, inside the build's `<Directory>` block.
+
+### nginx
+
+```nginx
+# Brotli-precompressed Unity files: set encoding + underlying type, no re-compress.
+location ~ \.wasm\.br$ { add_header Content-Encoding br; default_type application/wasm;         gzip off; }
+location ~ \.js\.br$   { add_header Content-Encoding br; default_type application/javascript;   gzip off; }
+location ~ \.data\.br$ { add_header Content-Encoding br; default_type application/octet-stream; gzip off; }
+# For Gzip builds, swap ".br" → ".gz" and "br" → "gzip".
+```
+
+### Can't change the server config?
+
+Enable **Player Settings → Publishing Settings → Decompression Fallback**. Unity
+embeds the JS decompressor and drops the `.br`/`.gz` suffixes, so any static host
+works — but you keep the slow first load. Prefer the server headers when you can.
+
+> Only if you *also* see `SharedArrayBuffer is not defined` (threaded WebGL
+> builds): add `Cross-Origin-Opener-Policy: same-origin` and
+> `Cross-Origin-Embedder-Policy: credentialless`. Standard image-tracking builds
+> don't need these.
+
+For Unity's per-version reference, see
+[Unity's WebGL server-configuration samples](https://docs.unity3d.com/Manual/webgl-server-configuration-code-samples.html).
 
 ## Can't select WebARTemplate in Player Settings
 
