@@ -38,10 +38,12 @@ project's render pipeline. For the camera feed specifically, assign a
 pipeline-appropriate material to **WebARCameraBackground → Material Template**.
 URP is the most thoroughly tested pipeline.
 
-## Build loads slowly (30+ seconds)
+## Build loads slowly or doesn't load at all
 
-**Symptom:** the build loads and tracks, but the *first* load takes 20–30
-seconds (noticeably worse on iPhone) instead of a few seconds.
+**Symptom:** either the first load is very slow (20–30 s, worse on iPhone), or
+the build fails to start at all — often with a `.wasm.br` / Brotli parse error in
+the console. It's the same root cause; which one you get depends on whether
+**Decompression Fallback** is on (slow) or off, the release default (hard fail).
 
 **Cause:** Unity WebGL release builds ship their big artifacts *already
 compressed* — `*.wasm.br`, `*.framework.js.br`, `*.data.br` (Brotli) or `*.gz`
