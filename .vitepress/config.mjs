@@ -5,11 +5,15 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'WebAR Image Tracker for Unity',
   description:
-    'Image-target augmented reality for Unity WebGL — runs in the mobile browser on iOS Safari and Android Chrome. No app, no ARKit, no ARCore, no WebXR.',
+    'Image-target augmented reality for Unity WebGL. Runs in the browser on iOS Safari, Android Chrome, and desktop. No app install required.',
   lang: 'en-US',
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ['README.md'],
+
+  // GitHub Pages project site - assets resolve under the repo path.
+  // Remove (or set to '/') if the site moves to a custom domain.
+  base: '/webar-image-tracker-for-unity/',
 
   // Keep the first deploy green even if an anchor link is imperfect. Once the
   // site builds cleanly, flip this to false to catch genuinely broken links.
@@ -24,14 +28,14 @@ export default defineConfig({
       {
         property: 'og:description',
         content:
-          'Image-target AR in the mobile browser — iOS Safari + Android Chrome, no app, no WebXR.',
+          'Image-target AR in the browser. iOS Safari, Android Chrome, and desktop. No app install required.',
       },
     ],
   ],
 
   themeConfig: {
     // Brand wordmark in the nav bar. Drop the two files into .vitepress/public/
-    // (SVG preferred — a wordmark stays crisp at any size):
+    // (SVG preferred - a wordmark stays crisp at any size):
     //   makegamesplay-black.svg  → shown in LIGHT theme (dark logo on light bar)
     //   makegamesplay-white.svg  → shown in DARK theme  (white logo on dark bar)
     // If your files are PNG, change the two extensions below to .png.
@@ -46,7 +50,7 @@ export default defineConfig({
       {
         text: 'Guide',
         link: '/getting-started',
-        activeMatch: '/(getting-started|creating-markers|multi-target|testing-on-device)',
+        activeMatch: '/(getting-started|creating-markers|multi-target|testing-on-device|deploying)',
       },
       {
         text: 'Reference',
@@ -64,6 +68,7 @@ export default defineConfig({
           { text: 'Creating Markers', link: '/creating-markers' },
           { text: 'Multi-Target Tracking', link: '/multi-target' },
           { text: 'Testing on a Device', link: '/testing-on-device' },
+          { text: 'Deploying Your Build', link: '/deploying' },
         ],
       },
       {

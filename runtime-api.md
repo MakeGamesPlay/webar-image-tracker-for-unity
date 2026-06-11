@@ -4,7 +4,7 @@ description: Drive tracking, swap targets, and handle errors from your own C#.
 
 # Runtime API
 
-For most projects you never touch the API — drop a `WebARImageTracker`, parent
+For most projects you never touch the API - drop a `WebARImageTracker`, parent
 content under it, and it shows and hides itself. The API is for apps that start
 and stop tracking, swap targets, or surface their own AR UI.
 
@@ -36,7 +36,7 @@ WebARBridge.Instance.MatrixUpdated += (index, matrix16, ambiguityDeg) => { /* ..
 > **Prefer the components over raw matrices.** `WebARImageTracker` already mirrors
 > the *stabilised* world pose and toggles content visibility for you.
 > `MatrixUpdated` delivers the **raw** tracker matrix, before the smoothing
-> pipeline — use it only when you need the unfiltered pose.
+> pipeline - use it only when you need the unfiltered pose.
 
 ## Lifecycle control
 

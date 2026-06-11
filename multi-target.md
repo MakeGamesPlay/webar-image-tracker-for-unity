@@ -4,7 +4,7 @@ description: Track several printed images at the same time, each with its own co
 
 # Multi-Target Tracking
 
-WebAR Image Tracker can track **several images simultaneously** — each printed
+WebAR Image Tracker can track **several images simultaneously** - each printed
 target gets its own content, and each is stabilised by the same proven pose
 pipeline as a single target.
 
@@ -43,7 +43,7 @@ then configure each:
   the compile order (a named dropdown when the marker carries names), and
   **leaves Target File blank** (they share the primary's marker).
 * Set each target's printed **Width** and **Height** (in centimetres) on the
-  **marker asset**, per index — so a business card and a poster in the same
+  **marker asset**, per index - so a business card and a poster in the same
   marker each render at their own scale. (Sizes live on the asset, not the
   tracker.)
 
@@ -51,19 +51,15 @@ then configure each:
 
 Put each target's content under its own `WebARImageTracker` GameObject. Each
 tracker activates its own children when its target is visible and hides them
-when it isn't — independently of the others.
+when it isn't - independently of the others.
 
-## Performance: the honest trade-off
+## Performance
 
-> Tracking more than one target at a time makes the matcher do more work **per
-> frame**, which lowers the tracker frame rate for *every* target. Even a perfect
-> per-target pipeline has a lower quality ceiling at `Max Targets > 1` than at
-> `1`. Tune `Max Targets` to the smallest number your experience actually needs.
-
-The live tracker rate is always visible on the on-device diagnostic overlay as
-`upd (Hz)`, and queryable from C# via `WebARBridge.Instance.TrackerRateHz` — so
-you can measure the cost on your own content and devices rather than guessing.
-See [Browser & Device Support](browser-support.md) for the per-device rates.
+Tracking more than one target at a time adds matcher work per frame, which
+lowers the tracker rate for every target. Set `Max Targets` to the smallest
+number the experience needs. The live rate is visible as `upd (Hz)` on the
+diagnostics overlay and via `WebARBridge.Instance.TrackerRateHz`; per-device
+rates are in [Browser & Device Support](browser-support.md).
 
 ## Tips
 

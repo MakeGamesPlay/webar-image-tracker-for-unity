@@ -4,69 +4,39 @@ description: Serve your build over HTTPS and watch the device console live.
 
 # Testing on a Device
 
-WebAR needs a **secure (HTTPS) origin** to access the camera, and Unity's
-compressed WebGL build files need the right `Content-Encoding` headers to load
-quickly. A plain `http://` static server gives you neither — so the camera
-prompt never fires and the build crawls.
-
-## The fast path: WebGL Build Host
-
-This package bundles **WebGL Build Host** for exactly this job.
+Camera access needs an HTTPS origin, and Unity's compressed build files need
+the right `Content-Encoding` headers. The bundled **WebGL Build Host** covers
+both for local testing:
 
 1. Open **`Tools ▸ WebAR Image Tracker for Unity ▸ Test on Device`**.
-2. Pick your WebGL **build folder**.
-3. Press **Start**.
-4. **Scan the on-screen QR code** with your phone.
+2. Pick your WebGL build folder and press **Start**.
+3. Scan the QR code with your device and accept the self-signed certificate.
 
-It serves the build over **self-signed HTTPS on your LAN** with the correct
-compression headers, and **streams each connected device's console back into the
-editor** — so you can read what the phone sees without a tethered remote-debug
-session.
+The host serves over HTTPS on your LAN and streams each connected device's
+console back into the editor. Desktop browsers also work directly with a
+webcam for quick iteration.
 
-> WebGL Build Host is free and open source on its own at
+> WebGL Build Host is also available on its own at
 > [github.com/MakeGamesPlay/unity-webgl-build-host](https://github.com/MakeGamesPlay/unity-webgl-build-host).
-> If you already installed it separately via a UPM Git URL, **remove that copy
-> before importing this package** to avoid a duplicate assembly.
+> If you installed it separately via UPM, remove that copy before importing
+> this package to avoid a duplicate assembly.
 
-## Deploying for real
+## The first-tap motion permission
 
-For a shareable, public URL, host the build on any provider that serves over
-TLS:
-
-* **GitHub Pages**
-* **Netlify**
-* **Cloudflare Pages**
-* Any host that serves over HTTPS and supports the right compression headers.
-
-> **`getUserMedia` won't fire on `http://` origins** (except `localhost`). If the
-> camera permission never prompts, you're almost certainly loading over HTTP —
-> redeploy over HTTPS.
-
-### Slow first load?
-
-If a build takes 20–30 s to load (worse on mobile), your host isn't serving the
-pre-compressed Unity files with the right `Content-Encoding` / `Content-Type`
-headers, so Unity falls back to slow JavaScript decompression. WebGL Build Host
-sets them correctly for local testing; for your **production** host, see
-[Build loads slowly or doesn't load at all](troubleshooting.md#build-loads-slowly-or-doesnt-load-at-all)
-for ready-to-paste Apache + nginx config.
-
-## On iOS: the first-tap permission
-
-iOS Safari splits **motion-sensor** permission from **camera** permission, and
-both need a user gesture. The bundled WebGL template surfaces iOS's native
-motion prompt on the first tap anywhere on the page (the loading overlay is that
-gesture surface). Granting it lets the motion-adaptive smoothing engage; denying
-it still tracks, just with a touch more drag during hand motion.
+iOS and Android ask for motion-sensor access separately from the camera. The
+template requests it on the first tap anywhere on the page. Granting it
+enables the gyro-fused rotation, dropout carry, and motion-adaptive smoothing;
+declining still tracks, with reduced polish.
 
 ## Reading the diagnostics
 
-To see live tracking telemetry on the device, enable the developer overlay:
-on the **WebARTrackedRoot** component, turn **Show Developer Diagnostic Overlay**
-on, then build and deploy. A banner appears at the top of the screen with tabs
-for **Device**, **Tracking**, **Smoothing**, **Camera**, and **Filter**.
-
-The banner's **Copy** button dumps every diagnostic to the clipboard as plain
-text — ideal for filing a bug report or
+Enable **Show Diagnostics Overlay** in the WebAR Controller's Debug foldout
+and rebuild. A banner appears with tabs (**Device, Tracking, Smoothing,
+Camera, Filter**) and a **Copy** button that captures everything to the
+clipboard, which is ideal for
 [reporting a new device](browser-support.md#reporting-a-new-device). See
 [Tracking Quality & Tuning](tracking-quality.md) for what the values mean.
+
+## Going public
+
+For a shareable URL, see [Deploying Your Build](deploying.md).
