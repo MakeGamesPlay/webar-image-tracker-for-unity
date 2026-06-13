@@ -54,7 +54,7 @@ only tracking settings you'll ever touch:
 | **Camera Fit Mode** | Cover | **Cover** fills the screen and crops the edges (no bars); **Contain** fits the whole frame with bars on one axis. |
 | **Background Material** | Built-in unlit | Material that draws the feed; the live video binds to its texture (`_MainTex` / `_BaseMap`). Assign your own to run the feed through a custom shader - the sample ships a base Shader Graph to copy and extend. |
 | **Mirror Horizontal / Quarter Turns** | Off / 0 | Flip or rotate the feed in 90° steps if a camera delivers it mirrored or sideways. |
-| **WebGPU / WebGL2 Profile** | Empty | Per-backend post-processing profiles (Assets ▸ Create ▸ WebAR ▸ Graphics Profile): each picks a post scope - whole view, AR content only, or off - and a content render scale. **Feed Layer** appears only when a profile uses Content-Only post. |
+| **WebGPU / WebGL2 Profile** | Empty | Per-backend graphics profiles (Assets ▸ Create ▸ WebAR ▸ Graphics Profile): each picks a post scope - whole view, AR content only, or off - a content render scale, and optionally a **Render Pipeline Asset** to activate for that backend (ship richer rendering on WebGPU, leaner on WebGL2). **Feed Layer** appears only when a profile uses Content-Only post. (AR-content-only post needs Unity 6 / URP 17; on Unity 2022.3 it renders whole-view instead.) |
 
 **Button:** **Add Image Tracker** spawns a child tracker - the same as
 `GameObject ▸ WebAR ▸ Image Tracker`.
@@ -62,7 +62,11 @@ only tracking settings you'll ever touch:
 ### The Debug foldout
 
 Diagnostics and validated A/B switches - for isolating problems, not everyday
-tuning. The switches ship in their device-validated configuration.
+tuning. The switches ship in their device-validated configuration. The
+Compatibility Audit warns if a developer toggle here (overlay, crash banner,
+reference marker, the logs, IMU bypass) is left on for a release build, and can
+switch them all off in one click. It skips this check when Development Build is
+enabled, since the toggles are expected then.
 
 | Field | Default | What it does |
 |-------|---------|--------------|
@@ -121,7 +125,9 @@ See [Runtime API](runtime-api.md).
 **Tools ▸ WebAR Image Tracker for Unity**
 
 * **About** - version, quick start, credits.
-* **Compatibility Audit** - one-click project readiness check.
+* **Compatibility Audit** - one-click project readiness check, with a one-click
+  fix for most items. Warnings that don't apply to your project can be ignored
+  (per project, persisted); ignored items stop blocking the pre-build check.
 * **Create Marker** - the in-editor marker compiler + trackability checks.
 * **Test on Device** - opens [WebGL Build Host](testing-on-device.md).
 

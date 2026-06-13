@@ -48,7 +48,7 @@ the **Feed Layer** used by Content-Only post-processing.
 
 AR content is sub-metre, but URP spreads its shadow map across the full
 Shadow Distance (default 50 m, 4 cascades), leaving few texels for a small
-model. In the **URP Asset → Shadows**, lower **Max Distance** to ~3 m and set
+model. In the **URP Asset → Shadows**, lower **Max Distance** to ~1 m and set
 **Cascade Count** to 1. Keep Soft Shadows on.
 
 ## Build loads slowly or doesn't load at all
@@ -145,6 +145,30 @@ A custom WebGL template hid the tracker's `<video>` element with
 `visibility: hidden`, `display: none`, or a 1×1 size; iOS Safari's autoplay
 policy freezes such videos. Use `opacity: 0`, as the bundled template does.
 See [Custom WebGL Templates](custom-templates.md#video-element-css).
+
+## Camera feed is black but content tracks (Content-Only post)
+
+The feed renders black behind your content when a WebAR Controller uses
+**Content-Only** post-processing and URP **Alpha Processing** is off on the
+quality tier the build ships. Content-Only composites the content over the
+feed using the content render texture's alpha; without Alpha Processing, post
+clears that alpha and the composite paints over the feed.
+
+The trap: a project with several URP quality tiers (e.g. Mobile + PC) builds
+with the URP asset of its platform's **default Quality level** (Project
+Settings → Quality), which is often a *different* tier than the one active in
+the Editor. So the Editor looks correct while the deployed build is black.
+
+Run **Tools ▸ WebAR Image Tracker for Unity ▸ Compatibility Audit** - it checks
+Alpha Processing on every URP tier and the one-click fix enables it on all of
+them. Or switch the affected backend's Graphics Profile to **Full View**, which
+doesn't use the alpha composite and works regardless.
+
+On **Unity 2022.3 (URP 14)** there is no Alpha Processing toggle at all - the
+post-process alpha output Content-Only relies on arrived in URP 17 (Unity 6).
+The plugin detects this and renders **Full View** automatically, so the feed
+shows instead of going black; the audit and the Controller Inspector note the
+fallback. For content-only post, use Unity 6 (URP 17 or newer).
 
 ## Content jitters at rest, or drags during motion
 
