@@ -6,7 +6,8 @@ hero:
   text: Augmented reality in the browser
   tagline: >-
     Point a device's camera at a printed image and your Unity content appears
-    on it. iOS Safari, Android Chrome, and desktop. No app install required.
+    on it. Runs in the browser on iOS, Android, and desktop. No app install
+    required.
   actions:
     - theme: brand
       text: Get Started
@@ -20,8 +21,8 @@ features:
     title: Runs in the browser
     details: >-
       Computer-vision tracking (mind-ar-js on TensorFlow.js) on a plain HTTPS
-      page. Share a URL and it works on iOS Safari, Android Chrome, and
-      desktop webcams.
+      page. Share a URL and it works on iOS, Android, and desktop browsers with
+      a camera.
   - icon: 🎮
     title: Author entirely in Unity
     details: >-

@@ -16,7 +16,7 @@ are load-bearing, and removing them degrades tracking in non-obvious ways.
 
 Mobile browsers gate motion-sensor access behind a permission that must be
 requested from a **user-gesture handler** - the prompt appears on iOS and
-Android. iOS Safari additionally requires the explicit
+Android. iOS additionally requires the explicit
 `DeviceMotionEvent.requestPermission()` call shown below (a no-op on browsers
 that don't implement it). Without the grant, the motion-adaptive filter
 relaxation won't engage, gyro-fused rotation falls back to tracker-rate
@@ -39,7 +39,7 @@ document.addEventListener('click', async () => {
 ## Video element CSS
 
 The mind-ar `<video>` element the tracker reads from must render its first frame
-to start producing pose matrices. **iOS Safari's autoplay policy freezes any
+to start producing pose matrices. **The iOS WebKit autoplay policy freezes any
 video that is `visibility: hidden`, `display: none`, or sized to 1×1** - the
 camera stream pauses after one frame and the tracker waits forever.
 

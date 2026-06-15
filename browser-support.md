@@ -18,6 +18,18 @@ X" message.
 * **Motion permission** (iOS and Android): requested on the first tap.
   Declining keeps tracking working with reduced polish.
 
+## Browsers
+
+* **iOS and iPadOS 16.4+:** any browser works - Safari, Chrome, Edge, Firefox,
+  and Brave - because Apple requires every browser on iOS to use the same WebKit
+  engine. Choosing a non-Safari browser does not change what is supported. A
+  one-time motion prompt enables the gyroscope and accelerometer used for
+  smoothing; tracking still works if it is declined.
+* **Android:** Chrome 89+ and other current Chromium browsers (Edge, Brave,
+  Opera, Samsung Internet); recent Firefox for Android works too.
+* **Desktop:** current Chrome, Edge, Firefox, Safari, Brave, and Opera with a
+  webcam.
+
 ## Performance tiers
 
 | Tier | Example hardware | Expected tracker rate |

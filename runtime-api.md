@@ -16,7 +16,7 @@ using MakeGamesPlay.WebAR;
 // Start from a bundled marker asset (preferred).
 WebARBridge.Instance.Initialize(myMarker.data);
 
-// Or from a hosted .mind URL (HTTPS required on iOS Safari).
+// Or from a hosted .mind URL (must be HTTPS).
 WebARBridge.Instance.Initialize("https://example.com/target.mind");
 ```
 
@@ -42,7 +42,7 @@ WebARBridge.Instance.MatrixUpdated += (index, matrix16, ambiguityDeg) => { /* ..
 
 ```csharp
 // Surrender the camera (e.g. navigating to a non-AR view). Fires TrackerStopped
-// once teardown finishes (async on iOS Safari).
+// once teardown finishes (async on iOS).
 WebARBridge.Instance.Stop();
 WebARBridge.Instance.TrackerStopped += reason => { /* clean up AR UI */ };
 

@@ -139,10 +139,10 @@ Confirm all the self-hosted bundle files are present in the deployed build's
 silently; the timeout surfaces it. The file list and re-download URLs are in
 [Custom WebGL Templates](custom-templates.md#bundled-dependencies).
 
-## Camera freezes on the first frame (iOS Safari)
+## Camera freezes on the first frame (iOS / WebKit)
 
 A custom WebGL template hid the tracker's `<video>` element with
-`visibility: hidden`, `display: none`, or a 1×1 size; iOS Safari's autoplay
+`visibility: hidden`, `display: none`, or a 1×1 size; the iOS WebKit autoplay
 policy freezes such videos. Use `opacity: 0`, as the bundled template does.
 See [Custom WebGL Templates](custom-templates.md#video-element-css).
 
