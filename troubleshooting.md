@@ -170,6 +170,28 @@ The plugin detects this and renders **Full View** automatically, so the feed
 shows instead of going black; the audit and the Controller Inspector note the
 fallback. For content-only post, use Unity 6 (URP 17 or newer).
 
+## Camera feed freezes when a particular object appears (WebGPU)
+
+**Symptom:** on the **WebGPU** backend the whole frame locks up the instant one
+specific object renders - the live feed stops updating (it alternates between
+two stale frames) and no content draws. Hiding that object (for example the
+marker leaving view, which deactivates tracked content) brings the feed back.
+The identical build runs fine on **WebGL2**, so it reads as "only this one
+object breaks it."
+
+**Cause:** Unity 6's experimental WebGPU backend stalls the frame's GPU
+submission on textures that are **non-power-of-two**, imported as **Sprite
+(2D and UI)**, or have **no mipmaps**. It shows up most with cut-out /
+billboard art (silhouettes, people) whose source PNGs are odd sizes. Opaque
+and power-of-two content on the same backend is unaffected. This is a texture
+issue, not a renderer one: a `MeshRenderer` quad and a `SpriteRenderer` with
+the same NPOT texture both freeze, so swapping the component does not help.
+
+**Fix:** import the offending textures like any 3D texture - **Texture Type:
+Default**, **Non-Power of 2: ToLarger** (or author them power-of-two to begin
+with), and **Generate Mipmaps** on. Matching a texture that already renders on
+WebGPU clears the freeze. WebGL2 needs none of this.
+
 ## Content jitters at rest, or drags during motion
 
 Tuning, not a defect: raise **Tracking Stability** for less rest jitter, lower
