@@ -34,14 +34,14 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    // Brand wordmark in the nav bar. Drop the two files into .vitepress/public/
-    // (SVG preferred - a wordmark stays crisp at any size):
-    //   makegamesplay-black.svg  → shown in LIGHT theme (dark logo on light bar)
-    //   makegamesplay-white.svg  → shown in DARK theme  (white logo on dark bar)
-    // If your files are PNG, change the two extensions below to .png.
+    // Brand wordmark in the nav bar, from the MakeGamesPlay brand assets.
+    // PNG rather than SVG because no vector wordmark exists; the source is
+    // 1074x134, downscaled to 769x96 for 4x headroom over the 24px nav height.
+    //   makegamesplay-black.png → LIGHT theme (dark wordmark on a light bar)
+    //   makegamesplay-white.png → DARK theme  (white wordmark on a dark bar)
     logo: {
-      light: '/makegamesplay-black.svg',
-      dark: '/makegamesplay-white.svg',
+      light: '/makegamesplay-black.png',
+      dark: '/makegamesplay-white.png',
       alt: 'MakeGamesPlay',
     },
     siteTitle: 'WebAR Image Tracker',
