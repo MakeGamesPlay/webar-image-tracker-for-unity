@@ -44,7 +44,9 @@ export default defineConfig({
       dark: '/makegamesplay-white.png',
       alt: 'MakeGamesPlay',
     },
-    siteTitle: 'WebAR Image Tracker',
+    // false hides the text beside the logo; the wordmark carries the brand and
+    // the hero states the product name immediately below.
+    siteTitle: false,
 
     nav: [
       {
