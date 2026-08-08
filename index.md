@@ -49,3 +49,38 @@ features:
       mind-ar-js and three.js ship bundled (no CDN). GameObject ▸ WebAR ▸
       Controller builds the scene rig in a click.
 ---
+
+## See it in action
+
+<div class="wa-video">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/IdrHXZpX-Do"
+    title="WebAR Image Tracker for Unity"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<style>
+/* Unscoped on purpose: one specific class, so it can't leak into other pages. */
+.wa-video {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+.wa-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
