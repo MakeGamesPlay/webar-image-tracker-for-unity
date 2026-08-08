@@ -20,7 +20,14 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   head: [
-    ['meta', { name: 'theme-color', content: '#3a7bd5' }],
+    // These hrefs are emitted verbatim, so they must repeat the `base` above.
+    // VitePress does not rewrite head entries the way it does markdown links,
+    // and a project Pages site has no favicon at the domain root.
+    ['link', { rel: 'icon', sizes: '48x48', href: '/webar-image-tracker-for-unity/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/webar-image-tracker-for-unity/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/webar-image-tracker-for-unity/favicon-16x16.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/webar-image-tracker-for-unity/apple-touch-icon.png' }],
+    ['meta', { name: 'theme-color', content: '#0f6afd' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'WebAR Image Tracker for Unity' }],
     [
