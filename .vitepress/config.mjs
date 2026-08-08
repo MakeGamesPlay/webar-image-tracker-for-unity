@@ -49,6 +49,7 @@ export default defineConfig({
     siteTitle: false,
 
     nav: [
+      { text: 'Live Demo', link: '/live-demo' },
       {
         text: 'Guide',
         link: '/getting-started',
@@ -66,6 +67,7 @@ export default defineConfig({
       {
         text: 'Guide',
         items: [
+          { text: 'Live Demo', link: '/live-demo' },
           { text: 'Getting Started', link: '/getting-started' },
           { text: 'Creating Markers', link: '/creating-markers' },
           { text: 'Multi-Target Tracking', link: '/multi-target' },

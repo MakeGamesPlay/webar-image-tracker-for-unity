@@ -20,6 +20,9 @@ business cards, museum placards, trading cards, and event signage. Share a
 URL, the user allows the camera, and the experience starts.
 
 > 🛒 **[Get it on the Unity Asset Store](https://assetstore.unity.com/packages/slug/384314)**
+>
+> ▶️ **[Try the live demo](https://makegamesplay.github.io/webar-image-tracker-for-unity/live-demo)** - scan a QR code, point your
+> phone at the image target, no install.
 
 ## Features
 
@@ -46,6 +49,7 @@ URL, the user allows the camera, and the experience starts.
 
 Read the docs at **[makegamesplay.github.io/webar-image-tracker-for-unity](https://makegamesplay.github.io/webar-image-tracker-for-unity/)** - searchable, with the full Inspector reference.
 
+* [Live Demo](https://makegamesplay.github.io/webar-image-tracker-for-unity/live-demo)
 * [Getting Started](https://makegamesplay.github.io/webar-image-tracker-for-unity/getting-started)
 * [Creating Markers](https://makegamesplay.github.io/webar-image-tracker-for-unity/creating-markers)
 * [Components Reference](https://makegamesplay.github.io/webar-image-tracker-for-unity/components)
