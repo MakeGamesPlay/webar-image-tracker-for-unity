@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import HomeVideo from './HomeVideo.vue'
 import './custom.css'
+import { setupImageZoom } from './imageZoom'
 
 // The trailer needs to sit between the hero and the feature grid. Markdown
 // written into index.md renders *after* the features on a `layout: home` page,
@@ -13,5 +14,8 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'home-features-before': () => h(HomeVideo),
     })
+  },
+  enhanceApp() {
+    setupImageZoom()
   },
 }

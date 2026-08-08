@@ -28,3 +28,48 @@
   --vp-button-brand-active-border: #0a58d6;
   --vp-button-brand-active-text: #ffffff;
 }
+
+/* Click-to-zoom (see imageZoom.js). Only content images opt in, so the nav
+   wordmark and the hero logo are untouched. */
+.vp-doc img {
+  cursor: zoom-in;
+  /* 12px matches the trailer frame on the home page. */
+  border-radius: 12px;
+}
+
+.vp-doc a img {
+  cursor: inherit;
+}
+
+.wa-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.wa-zoom.is-open {
+  opacity: 1;
+}
+
+.wa-zoom img {
+  width: auto;
+  height: auto;
+  max-width: 96vw;
+  max-height: 92vh;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-zoom {
+    transition: none;
+  }
+}
