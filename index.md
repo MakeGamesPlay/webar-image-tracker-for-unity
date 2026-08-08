@@ -55,7 +55,7 @@ features:
 <div class="wa-video">
   <iframe
     src="https://www.youtube-nocookie.com/embed/IdrHXZpX-Do"
-    title="WebAR Image Tracker for Unity"
+    title="WebAR Image Tracker for Unity | Augmented reality on the web, no app or WebXR"
     loading="lazy"
     referrerpolicy="strict-origin-when-cross-origin"
     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
