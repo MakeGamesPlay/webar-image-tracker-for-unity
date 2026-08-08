@@ -20,6 +20,11 @@ right headers.
   work everywhere, just slower to start).
 * **Stripping / optimisation:** defaults are safe. The plugin ships a
   `link.xml` that protects its runtime against High managed stripping.
+* **Name Files As Hashes:** turn **on** (Player Settings ▸ Publishing
+  Settings). Each build's files then carry content-derived names, so a
+  returning visitor can never load a mix of old and new build files after
+  you redeploy. Off by default, and worth turning on before your first
+  release rather than after.
 
 ## Uploading
 
@@ -46,8 +51,12 @@ CloudFront, or your own nginx / Apache.
 
 * **No cross-origin isolation needed.** The plugin doesn't use threads, so
   COOP / COEP headers are not required.
-* **Caching (optional):** files under `Build/` are content-hashed and safe to
-  cache aggressively; keep `index.html` short-lived.
+* **Caching:** with **Name Files As Hashes** on, files under `Build/` are
+  content-hashed and safe to cache permanently (`immutable`); keep
+  `index.html` short-lived (`no-cache, must-revalidate`) so returning
+  visitors always pick up the current build's file references. Without that
+  setting the filenames are reused between builds, and caching them hard
+  causes the error below.
 
 Ready-to-paste **Apache (`.htaccess`)** and **nginx** blocks live in
 [Troubleshooting → Build loads slowly or doesn't load at all](troubleshooting.md#build-loads-slowly-or-doesnt-load-at-all).

@@ -104,6 +104,13 @@ location ~ \.data\.br$ { add_header Content-Encoding br; default_type applicatio
 # For Gzip builds, swap ".br" for ".gz" and "br" for "gzip".
 ```
 
+> **`.htaccess` being ignored?** Apache only reads it where `AllowOverride`
+> permits it. That is common on shared hosting, and it also happens on a server
+> you manage yourself when the HTTPS vhost has no matching `<Directory>` block,
+> so the rules silently do nothing over HTTPS while appearing correct on disk.
+> Put the rules in the vhost instead, then run `apache2ctl configtest` and
+> reload Apache.
+
 ### No control over the server?
 
 Enable **Player Settings → Publishing Settings → Decompression Fallback** and
@@ -114,6 +121,26 @@ rebuild. Any static host then works, at the cost of the slower first load.
 
 Unity's own reference:
 [WebGL server-configuration samples](https://docs.unity3d.com/Manual/webgl-server-configuration-code-samples.html).
+
+## `memory access out of bounds` after a redeploy
+
+The page loads, then throws `RuntimeError: memory access out of bounds`. It
+affects **returning** visitors only, so it looks intermittent: a first-time
+visitor, or anyone who clears their browsing data, is fine.
+
+By default Unity reuses the same build filenames every time, so after a
+redeploy a browser can serve some files from cache and fetch others fresh,
+mixing two builds whose WebAssembly heap layouts do not match.
+
+Enable **Player Settings ▸ Publishing Settings ▸ Name Files As Hashes** and
+rebuild, so each build's files carry content-derived names and can never be
+confused with a previous build's. Serve `index.html` with
+`Cache-Control: no-cache, must-revalidate` so returning visitors always fetch
+the current build's file list, and let the hashed files under `Build/` cache
+permanently. See [Deploying Your Build](deploying.md).
+
+Until the site is rebuilt that way, the only fix on the visitor's side is
+clearing browsing data.
 
 ## Can't select WebARTemplate in Player Settings
 

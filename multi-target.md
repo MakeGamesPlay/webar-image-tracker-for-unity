@@ -53,6 +53,23 @@ Put each target's content under its own `WebARImageTracker` GameObject. Each
 tracker activates its own children when its target is visible and hides them
 when it isn't - independently of the others.
 
+## One shared content instance on any of several markers
+
+Sometimes you want the opposite of simultaneous tracking: several different
+printed images that each bring up **the same** content, one at a time. A product
+that ships in three box designs, or one exhibit label printed in three
+languages.
+
+Leave **Max Targets** at `1` and put **one `WebARImageTracker` per Target Index
+on the same GameObject**, with your content parented under that GameObject.
+Every target in the marker stays valid at `Max Targets = 1`, so pointing at any
+one of them activates its tracker and shows the shared content. The tracker
+holds whichever target it locked onto until that target leaves the view, then
+re-acquires, so exactly one is ever active.
+
+This costs no extra matcher work, because the tracker is still matching a single
+image per frame.
+
 ## Performance
 
 Tracking more than one target at a time adds matcher work per frame, which

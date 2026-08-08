@@ -62,7 +62,7 @@ A printable **User Guide PDF** ships inside the plugin at
 
 | | |
 |---|---|
-| **Unity** | 2022.3 LTS or newer (tested on 2022.3.62f3, 6000.0.77f1, 6000.3.17f1, 6000.4.11f1, 6000.5.0b4) |
+| **Unity** | 2022.3 LTS or newer (tested on 2022.3.62f3, 6000.0.77f1, 6000.3.17f1, 6000.4.11f1, 6000.5.0f1) |
 | **Input** | Input System package; **Active Input Handling** = "Input System Package" or "Both" (Unity 2022.3 defaults to the old Input Manager, so switch it) |
 | **Render pipeline** | URP recommended; Built-in & HDRP supported |
 | **Build target** | WebGL |

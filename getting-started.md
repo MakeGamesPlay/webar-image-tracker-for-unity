@@ -8,7 +8,7 @@ From a fresh import to tracked content on a printed image.
 
 ## Requirements
 
-* Unity 2022.3 LTS or newer (tested on 2022.3.62f3, 6000.0.77f1, 6000.3.17f1, 6000.4.11f1, and 6000.5.0b4).
+* Unity 2022.3 LTS or newer (tested on 2022.3.62f3, 6000.0.77f1, 6000.3.17f1, 6000.4.11f1, and 6000.5.0f1).
 * Input System package, with **Active Input Handling** set to "Input System
   Package" or "Both" (Project Settings ▸ Player ▸ Other Settings). Unity 2022.3
   defaults to the old Input Manager, so set it there; Unity 6 projects usually
