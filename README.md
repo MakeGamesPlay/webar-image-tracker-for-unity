@@ -44,16 +44,19 @@ URL, the user allows the camera, and the experience starts.
 
 ## Documentation
 
-* [Getting Started](getting-started.md)
-* [Creating Markers](creating-markers.md)
-* [Components Reference](components.md)
-* [Multi-Target Tracking](multi-target.md)
-* [Tracking Quality & Tuning](tracking-quality.md)
-* [Testing on a Device](testing-on-device.md)
-* [Deploying Your Build](deploying.md)
-* [Browser & Device Support](browser-support.md)
-* [Runtime API](runtime-api.md)
-* [Troubleshooting](troubleshooting.md)
+Read the docs at **[makegamesplay.github.io/webar-image-tracker-for-unity](https://makegamesplay.github.io/webar-image-tracker-for-unity/)** - searchable, with the full Inspector reference.
+
+* [Getting Started](https://makegamesplay.github.io/webar-image-tracker-for-unity/getting-started)
+* [Creating Markers](https://makegamesplay.github.io/webar-image-tracker-for-unity/creating-markers)
+* [Components Reference](https://makegamesplay.github.io/webar-image-tracker-for-unity/components)
+* [Multi-Target Tracking](https://makegamesplay.github.io/webar-image-tracker-for-unity/multi-target)
+* [Tracking Quality & Tuning](https://makegamesplay.github.io/webar-image-tracker-for-unity/tracking-quality)
+* [Testing on a Device](https://makegamesplay.github.io/webar-image-tracker-for-unity/testing-on-device)
+* [Deploying Your Build](https://makegamesplay.github.io/webar-image-tracker-for-unity/deploying)
+* [Browser & Device Support](https://makegamesplay.github.io/webar-image-tracker-for-unity/browser-support)
+* [Runtime API](https://makegamesplay.github.io/webar-image-tracker-for-unity/runtime-api)
+* [Troubleshooting](https://makegamesplay.github.io/webar-image-tracker-for-unity/troubleshooting)
+* [Custom WebGL Templates](https://makegamesplay.github.io/webar-image-tracker-for-unity/custom-templates)
 
 A printable **User Guide PDF** ships inside the plugin at
 `Assets/MakeGamesPlay/WebARImageTracker/`.
